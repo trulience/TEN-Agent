@@ -95,6 +95,7 @@ def _text_to_base64_chunks(text: str, msg_id: str) -> list:
 
     return updated_chunks
 
+
 class MessageCollectorExtension(Extension):
     # Create the queue for message processing
     queue = asyncio.Queue()
@@ -146,6 +147,9 @@ class MessageCollectorExtension(Extension):
             {"name": "text_data", "properties": {"text": "hello", "is_final": true, "stream_id": 123, "end_of_segment": true}}
         """
         logger.debug(f"on_data")
+        logger.info('----------------- MESSAGE FROM ASSISTANT -----------------')
+        logger.info(data.get_property_string(TEXT_DATA_TEXT_FIELD))
+        logger.info('-----------------')
 
         text = ""
         final = True

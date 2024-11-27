@@ -82,12 +82,17 @@ const Rtc = () => {
   }
 
   const onTextChanged = (text: ITextItem) => {
-    if (text.dataType == "transcribe" && text.text.indexOf('SSML_')==-1) { 
-      const isAgent = Number(text.uid) != Number(userId)
+    const isAgent = Number(text.uid) != Number(userId)
+    const isTaskText = text.text == "the task number"
+    console.log('-----')
+    console.log("[test] onTextChanged", text.text)
+    console.log('-----')
+
+    if (isAgent && isTaskText) {
       dispatch(addChatItem({
         userId: text.uid,
-        text: text.text.replace(/\bSSML_\w*\b/g, '').replace(/\s+/g, ' ').trim(),
-        type: isAgent ? "agent" : "user",
+        text: "TASK DESCRIPTION",
+        type: "agent",
         isFinal: text.isFinal,
         time: text.time
       }))
