@@ -128,7 +128,7 @@ class EXAMPLEToolExtension(Extension):
     def _run_example(self,  args:dict) -> Any:
         logger.info(f"TOOL EXAMPLE filling {args}")   
         filling = args["filling"] 
-        if filling == "chicken":
+        if filling == "beef":
             return "sorry out of chicken, please choose something dfferent"
 
         return "OK it will be available for collection in 15 mins"
