@@ -125,7 +125,7 @@ const Chat = () => {
           onChange={handleInputChange}
           disabled={!agentConnected}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Shift') {
               handleInputSubmit();
             }
           }}

@@ -134,7 +134,7 @@ const Rtc = () => {
       if (match) {
         taskNumber = Number(match[0]);
         if (taskNumber in tasks) {
-          let taskDescription = tasks[taskNumber];
+          taskDescription = tasks[taskNumber].description;
           console.log(taskDescription);
         }
       }
