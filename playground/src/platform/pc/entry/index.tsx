@@ -44,21 +44,23 @@ const PCEntry = () => {
   }
 
 
-  return <div className={styles.entry}>
-    <Header />
-    <div className={styles.content}>
-      <Description />
-      <div className={styles.body} style={{ display: 'flex', height: '100%' }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Chat />
-          <Rtc />
-        </div>
-        <div style={{ marginLeft: 'auto', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-          <Avatar audioTrack={remoteuser?.audioTrack} />
-        </div>
-      </div>
-    </div>
-  </div>
+  return (
+  <div className={styles.entry}>
+     <Header />
+     <div className={styles.content}>
+       <Description />
+       <div className={styles.body} style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+           <Avatar audioTrack={remoteuser?.audioTrack} />
+          <div style={{ display: 'flex', flexDirection: 'row', flexGrow: 1 }}>
+            <Chat/>
+            <Rtc/>
+          </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  );
 }
 
 

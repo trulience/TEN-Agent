@@ -88,7 +88,7 @@ const Chat = () => {
     }
     // rtmManager.sendText(inputValue)
     rtcManager.sendText(inputValue)
-    setInputValue("")
+    // setInputValue("")
   }
 
   return <section className={styles.chat}>
@@ -116,27 +116,27 @@ const Chat = () => {
           gap: "10px",
         }}
       >
-        <input
+        <textarea
           type="text"
           // disabled={disableInputMemo}
-          style={{ width: "calc(100% - 50px)", padding: "5px" }}
-          placeholder="Type a message..."
+          style={{ width: "calc(100% - 50px)", padding: "5px", height: "200px" }}
+          placeholder="Type your code..."
           value={inputValue}
           onChange={handleInputChange}
           disabled={!agentConnected}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Shift') {
               handleInputSubmit();
             }
           }}
         />
-        <Button
-          type="primary"
-          disabled={!agentConnected || inputValue.length == 0}
-          onClick={handleInputSubmit}
-        >
-          <span className="sr-only">Send message</span>
-        </Button>
+        {/*<Button*/}
+        {/*  type="primary"*/}
+        {/*  disabled={!agentConnected || inputValue.length == 0}*/}
+        {/*  onClick={handleInputSubmit}*/}
+        {/*>*/}
+        {/*  <span className="sr-only">Update code</span>*/}
+        {/*</Button>*/}
       </div>
     </ConfigProvider>
   
